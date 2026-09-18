@@ -293,7 +293,7 @@ header button {
   display: flex;
   flex-direction: column;
 }
-.future i {
+.future > div:not(.day) > i {
   width: 23px;
   height: 23px;
   border: 2px dashed #c9c2b8;
