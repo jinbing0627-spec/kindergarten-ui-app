@@ -175,13 +175,13 @@ function stickers() {
   return `<section class="card"><h2>모은 스티커</h2><div class="stickers">${Array.from({ length: 21 }, (_, i) => `<i class="${i < 5 ? "earned" : ""}">${i < 5 ? "★" : ""}</i>`).join("")}</div><small>5 / 28</small></section>`;
 }
 function settingsRow(icon, title, desc = "", action = "", danger = false) {
-  return `<button ${action ? `data-action="${action}"` : ""} class="${danger ? "danger" : ""}>${uiIcon(icon)}<span><strong>${title}</strong>${desc ? `<small>${desc}</small>` : ""}</span><em>›</em></button>`;
+  return `<button ${action ? `data-action="${action}"` : ""} class="${danger ? "danger" : ""}">${uiIcon(icon)}<span><strong>${title}</strong>${desc ? `<small>${desc}</small>` : ""}</span><em>›</em></button>`;
 }
 function settings() {
-  return `<p class="eyebrow">SETTINGS</p><h1>설정</h1>
+  return `<section class="settings-view"><p class="eyebrow">SETTINGS</p><h1>설정</h1>
   <h3>학습 설정</h3><section class="settings"><button data-action="notifications">${uiIcon("bell")}<span><strong>소리놀이 알림</strong><small>아침·저녁·잠자리 시간을 알려드려요</small></span><i class="toggle ${state.notifications ? "on" : ""}"><b></b></i></button>${settingsRow("user", "아이 정보", "이름, 연령, 학습 시작일")}</section>
   <h3>안내</h3><section class="settings">${settingsRow("book", "소리노출 가이드")}${settingsRow("help", "자주 묻는 질문")}${settingsRow("sparkle", "앱 소개 다시 보기", "", "replay")}${settingsRow("shield", "도움말 다시 보기")}${settingsRow("mail", "문의하기")}</section>
-  <h3>계정</h3><section class="settings">${settingsRow("mail", "계정 이메일")}${settingsRow("logout", "로그아웃")}${settingsRow("trash", "데이터 모두 삭제하고 탈퇴", "", "", true)}</section><footer>버전 0.2.0 · Week 1<br><u>개인정보처리방침</u></footer>`;
+  <h3>계정</h3><section class="settings">${settingsRow("mail", "계정 이메일")}${settingsRow("logout", "로그아웃")}${settingsRow("trash", "데이터 모두 삭제하고 탈퇴", "", "", true)}</section><footer>버전 0.2.0 · Week 1<br><u>개인정보처리방침</u></footer></section>`;
 }
 function popup() {
   let r = routines.find((x) => x.id === state.popup);
