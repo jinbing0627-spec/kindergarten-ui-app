@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Gmarket Sans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gmarket Sans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -32,8 +47,8 @@ h1 {
 }
 header + .eyebrow + h1,
 .hero h2 {
-  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  font-weight: 700;
+  font-family: "Gmarket Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 900;
   letter-spacing: -0.045em;
 }
 header + .eyebrow + h1 {
@@ -1017,20 +1032,20 @@ b {
 }
 .scroll > .eyebrow + h1,
 .settings-view > h1 {
-  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Gmarket Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 31px;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: -0.045em;
 }
 header + .eyebrow + h1 {
   font-size: 25px;
 }
 .hero h2 {
-  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Gmarket Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 28px;
   line-height: 1.16;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: -0.05em;
 }
 .heading h2 {
@@ -1050,8 +1065,8 @@ header + .eyebrow + h1 {
   letter-spacing: -0.015em;
 }
 .week strong {
-  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  font-weight: 700;
+  font-family: "Gmarket Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 900;
   letter-spacing: -0.04em;
 }
 .activity strong,
