@@ -1,6 +1,8 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css");
 @font-face {
   font-family: "Gmarket Sans";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
+    format("woff");
   font-weight: 700 900;
   font-style: normal;
   font-display: swap;
@@ -41,7 +43,9 @@ h1 {
 }
 header + .eyebrow + h1,
 .hero h2 {
-  font-family: "Gmarket Sans", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family:
+    "Gmarket Sans", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic",
+    sans-serif;
   font-weight: 900;
   letter-spacing: -0.045em;
 }
@@ -1002,4 +1006,81 @@ nav .on {
   nav button {
     transition: none;
   }
+}
+
+/* Typography matched to the original SoundsFun Bridge */
+body,
+button,
+input,
+textarea,
+select {
+  font-family:
+    "Pretendard Variable", "Pretendard", "SUIT", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+}
+h1,
+h2,
+h3,
+strong,
+b {
+  letter-spacing: -0.035em;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+}
+.scroll > .eyebrow + h1,
+.settings-view > h1 {
+  font-family: "Gmarket Sans", "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 31px;
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+header + .eyebrow + h1 {
+  font-size: 25px;
+}
+.hero h2 {
+  font-family: "Gmarket Sans", "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 28px;
+  line-height: 1.16;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+.heading h2 {
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 900;
+}
+.routine strong {
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 850;
+}
+.routine em,
+.routine small,
+.future small,
+.lead {
+  letter-spacing: -0.015em;
+}
+.week strong {
+  font-family: "Gmarket Sans", "Pretendard Variable", "Pretendard", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+.activity strong,
+.stages strong,
+.preview h3,
+.card h2,
+.settings button strong {
+  font-weight: 850;
+}
+.stats b {
+  font-weight: 850;
+}
+nav button span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
