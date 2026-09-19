@@ -52,16 +52,36 @@ let state = {
   playing: false,
   sec: 0,
   splash: true,
+  notifications: true,
 };
 let timer;
 const $ = (s) => document.querySelector(s);
 const img = (r, cl = "") => `<img class="${cl}" src="${r.img}" alt="">`;
 function navIcon(id) {
   const paths = {
-    today: '<path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
-    journey: '<path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/>',
+    today:
+      '<path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
+    journey:
+      '<path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/>',
     parent: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
-    settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.09A1.7 1.7 0 0 0 9 19.36a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.63 15 1.7 1.7 0 0 0 3.07 14H3v-4h.09A1.7 1.7 0 0 0 4.64 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.63 1.7 1.7 0 0 0 10.07 3H14a1.7 1.7 0 0 0 1.03 1.63 1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.37 9 1.7 1.7 0 0 0 21 10.07V14a1.7 1.7 0 0 0-1.6 1z"/>',
+    settings:
+      '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.09A1.7 1.7 0 0 0 9 19.36a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.63 15 1.7 1.7 0 0 0 3.07 14H3v-4h.09A1.7 1.7 0 0 0 4.64 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.63 1.7 1.7 0 0 0 10.07 3H14a1.7 1.7 0 0 0 1.03 1.63 1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.37 9 1.7 1.7 0 0 0 21 10.07V14a1.7 1.7 0 0 0-1.6 1z"/>',
+  };
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[id]}</svg>`;
+}
+function uiIcon(id) {
+  const paths = {
+    bell: '<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5z"/><path d="M4 6.5v13"/>',
+    help: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 4.4 1.9c-1.1.8-1.9 1.3-1.9 2.6M12 17h.01"/>',
+    sparkle:
+      '<path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4zM19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7z"/>',
+    shield:
+      '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    logout: '<path d="M10 17l5-5-5-5M15 12H3M21 19V5a2 2 0 0 0-2-2h-6"/>',
+    trash: '<path d="M3 6h18M8 6V4h8v2M19 6l-1 15H6L5 6M10 11v6M14 11v6"/>',
   };
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[id]}</svg>`;
 }
@@ -117,7 +137,7 @@ function journey() {
       "#F05C72",
     ],
   ];
-  return `<p class="eyebrow">48-WEEK JOURNEY</p><h1>소리에서 읽기까지</h1><p class="lead">매일 같은 90분 루틴 위에 12주마다 새로운 힘을 더해요.</p><section class="week"><div><small>WEEK 1 · 지금 여행 중</small><strong>Colors</strong><b>오늘 ${pc}% 완료</b></div><img src="chick.png"></section><section class="activity"><div><small>이번 주 소리활동</small><strong>색깔을 듣고, 찾고, 말해요</strong><p>red · yellow · green · blue</p></div><button data-routine="theme">▶ 시작</button></section><div class="days">${["월", "화", "수", "목", "금", "토", "일"].map((d, i) => `<div class="${i < 2 ? "done" : i === 2 ? "now" : ""}"><b>${i < 2 ? "★" : i === 2 ? state.done.length : ""}</b><small>${d}</small></div>`).join("")}</div><div class="stages">${stages.map((s, i) => `<article style="--c:${s[4]}" class="${i === 0 ? "current" : ""}"><i>${i === 0 ? "1" : "•"}</i><div><small>${s[0]}</small><strong>${s[1]}</strong><b>${s[2]}</b><p>${s[3]}</p></div>${i === 0 ? "<em>NOW</em>" : ""}</article>`).join("")}</div><section class="preview"><small>WEEK 13 PREVIEW</small><h3>어떤 두 단어가 같은 소리로 끝날까요?</h3><div><button>cat + hat</button><button>cat + sun</button></div></section>`;
+  return `<p class="eyebrow">48-WEEK JOURNEY</p><h1>소리에서 읽기까지</h1><p class="lead">매일 같은 90분 루틴 위에 12주마다 새로운 힘을 더해요.</p><section class="week"><div><small>WEEK 1 · 지금 여행 중</small><strong>Colors</strong><b>오늘 ${pc}% 완료</b></div><img src="${routines[0].img}" alt="병아리 캐릭터"></section><section class="activity"><div><small>이번 주 소리활동</small><strong>색깔을 듣고, 찾고, 말해요</strong><p>red · yellow · green · blue</p></div><button data-routine="theme">▶ 시작</button></section><div class="days">${["월", "화", "수", "목", "금", "토", "일"].map((d, i) => `<div class="${i < 2 ? "done" : i === 2 ? "now" : ""}"><b>${i < 2 ? "★" : i === 2 ? state.done.length : ""}</b><small>${d}</small></div>`).join("")}</div><div class="stages">${stages.map((s, i) => `<article style="--c:${s[4]}" class="${i === 0 ? "current" : ""}"><i>${i === 0 ? "1" : "•"}</i><div><small>${s[0]}</small><strong>${s[1]}</strong><b>${s[2]}</b><p>${s[3]}</p></div>${i === 0 ? "<em>NOW</em>" : ""}</article>`).join("")}</div><section class="preview"><small>WEEK 13 PREVIEW</small><h3>어떤 두 단어가 같은 소리로 끝날까요?</h3><div><button>cat + hat</button><button>cat + sun</button></div></section>`;
 }
 function parent() {
   let mins = routines
@@ -154,21 +174,14 @@ function summary() {
 function stickers() {
   return `<section class="card"><h2>모은 스티커</h2><div class="stickers">${Array.from({ length: 21 }, (_, i) => `<i class="${i < 5 ? "earned" : ""}">${i < 5 ? "★" : ""}</i>`).join("")}</div><small>5 / 28</small></section>`;
 }
+function settingsRow(icon, title, desc = "", action = "", danger = false) {
+  return `<button ${action ? `data-action="${action}"` : ""} class="${danger ? "danger" : ""}>${uiIcon(icon)}<span><strong>${title}</strong>${desc ? `<small>${desc}</small>` : ""}</span><em>›</em></button>`;
+}
 function settings() {
-  return `<p class="eyebrow">SETTINGS</p><h1>설정</h1>${[
-    "학습 설정|🔔 소리놀이 알림|아침·저녁·잠자리 시간을 알려드려요|👤 아이 정보|이름, 연령, 학습 시작일",
-    "안내|▣ 소리노출 가이드||? 자주 묻는 질문||✦ 앱 소개 다시 보기||✧ 도움말 다시 보기||✉ 문의하기|",
-    "계정|✉ 계정 이메일||↪ 로그아웃||🗑 데이터 모두 삭제하고 탈퇴|",
-  ]
-    .map((g) => {
-      let a = g.split("|"),
-        title = a.shift();
-      let rows = "";
-      for (let i = 0; i < a.length; i += 2)
-        rows += `<button><b>${a[i]}</b>${a[i + 1] ? `<small>${a[i + 1]}</small>` : ""}<em>›</em></button>`;
-      return `<h3>${title}</h3><section class="settings">${rows}</section>`;
-    })
-    .join("")}<footer>버전 0.2.0 · Week 1<br><u>개인정보처리방침</u></footer>`;
+  return `<p class="eyebrow">SETTINGS</p><h1>설정</h1>
+  <h3>학습 설정</h3><section class="settings"><button data-action="notifications">${uiIcon("bell")}<span><strong>소리놀이 알림</strong><small>아침·저녁·잠자리 시간을 알려드려요</small></span><i class="toggle ${state.notifications ? "on" : ""}"><b></b></i></button>${settingsRow("user", "아이 정보", "이름, 연령, 학습 시작일")}</section>
+  <h3>안내</h3><section class="settings">${settingsRow("book", "소리노출 가이드")}${settingsRow("help", "자주 묻는 질문")}${settingsRow("sparkle", "앱 소개 다시 보기", "", "replay")}${settingsRow("shield", "도움말 다시 보기")}${settingsRow("mail", "문의하기")}</section>
+  <h3>계정</h3><section class="settings">${settingsRow("mail", "계정 이메일")}${settingsRow("logout", "로그아웃")}${settingsRow("trash", "데이터 모두 삭제하고 탈퇴", "", "", true)}</section><footer>버전 0.2.0 · Week 1<br><u>개인정보처리방침</u></footer>`;
 }
 function popup() {
   let r = routines.find((x) => x.id === state.popup);
@@ -177,7 +190,7 @@ function popup() {
     : "";
 }
 function splash() {
-  return `<div class="splash" data-start="1"><img src="https://soundsfun-bridge.huryoonsoo.chatgpt.site/soundsfun-intro.png"><button>화면을 눌러 시작해요</button></div>`;
+  return `<div class="splash" data-start="1"><video autoplay muted playsinline preload="auto" poster="https://soundsfun-bridge.huryoonsoo.chatgpt.site/soundsfun-intro.png"><source src="https://soundsfun-bridge.huryoonsoo.chatgpt.site/soundsfun-intro.mp4" type="video/mp4"></video><button class="splash-sound" data-sound="1">🔊 소리 켜기</button><span>화면을 눌러 시작해요</span></div>`;
 }
 function render() {
   let v =
@@ -252,10 +265,34 @@ function bind() {
     };
   let s = $("[data-start]");
   if (s)
-    s.onclick = () => {
+    s.onclick = (e) => {
+      if (e.target.closest("[data-sound]")) return;
       state.splash = false;
       render();
     };
+  let sound = $("[data-sound]");
+  if (sound)
+    sound.onclick = (e) => {
+      e.stopPropagation();
+      const video = $(".splash video");
+      video.muted = !video.muted;
+      sound.textContent = video.muted ? "🔊 소리 켜기" : "🔇 소리 끄기";
+      video.play();
+    };
+  $$('[data-action="notifications"]').forEach(
+    (b) =>
+      (b.onclick = () => {
+        state.notifications = !state.notifications;
+        render();
+      }),
+  );
+  $$('[data-action="replay"]').forEach(
+    (b) =>
+      (b.onclick = () => {
+        state.splash = true;
+        render();
+      }),
+  );
 }
 function $$(s) {
   return [...document.querySelectorAll(s)];
