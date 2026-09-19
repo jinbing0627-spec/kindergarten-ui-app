@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Gmarket Sans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   box-sizing: border-box;
 }
@@ -31,6 +38,15 @@ button {
 h1 {
   font-size: 25px;
   margin: 0 0 18px;
+}
+header + .eyebrow + h1,
+.hero h2 {
+  font-family: "Gmarket Sans", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+header + .eyebrow + h1 {
+  line-height: 1.25;
 }
 h2 {
   margin: 0;
@@ -120,6 +136,7 @@ header button {
 .hero h2 {
   margin: 12px 0 7px;
   font-size: 28px;
+  line-height: 1.16;
 }
 .hero p {
   margin: 0;
