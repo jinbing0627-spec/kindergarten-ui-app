@@ -182,10 +182,10 @@ header button {
   animation-delay: -2.1s;
 }
 .cast img:nth-child(4) {
-  width: 88px;
-  height: 88px;
-  right: 139px;
-  bottom: 18px;
+  width: 72px;
+  height: 72px;
+  right: 147px;
+  bottom: 24px;
   animation-delay: -2.7s;
 }
 @keyframes hero-float {
