@@ -1,4 +1,3 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css");
 * {
   box-sizing: border-box;
 }
@@ -6,9 +5,7 @@ body {
   margin: 0;
   background: #dff2ed;
   color: #2c3e38;
-  font-family:
-    "Pretendard", "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", Arial,
-    sans-serif;
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 button {
   font: inherit;
@@ -35,10 +32,8 @@ h1 {
 }
 header + .eyebrow + h1,
 .hero h2 {
-  font-family:
-    "Pretendard Variable", "Pretendard", "SUIT", "Apple SD Gothic Neo",
-    "Malgun Gothic", sans-serif;
-  font-weight: 850;
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 700;
   letter-spacing: -0.045em;
 }
 header + .eyebrow + h1 {
@@ -1006,9 +1001,7 @@ button,
 input,
 textarea,
 select {
-  font-family:
-    "Pretendard Variable", "Pretendard", "SUIT", "Apple SD Gothic Neo",
-    "Malgun Gothic", sans-serif;
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 h1,
 h2,
@@ -1024,20 +1017,20 @@ b {
 }
 .scroll > .eyebrow + h1,
 .settings-view > h1 {
-  font-family: "Pretendard Variable", "Pretendard", "SUIT", sans-serif;
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 31px;
   line-height: 1.25;
-  font-weight: 850;
+  font-weight: 700;
   letter-spacing: -0.045em;
 }
 header + .eyebrow + h1 {
   font-size: 25px;
 }
 .hero h2 {
-  font-family: "Pretendard Variable", "Pretendard", "SUIT", sans-serif;
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 28px;
   line-height: 1.16;
-  font-weight: 850;
+  font-weight: 700;
   letter-spacing: -0.05em;
 }
 .heading h2 {
@@ -1057,8 +1050,8 @@ header + .eyebrow + h1 {
   letter-spacing: -0.015em;
 }
 .week strong {
-  font-family: "Pretendard Variable", "Pretendard", "SUIT", sans-serif;
-  font-weight: 850;
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 700;
   letter-spacing: -0.04em;
 }
 .activity strong,
